@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using YallaHaggz.Domain.Abstractions;
 
-namespace YallaHaggz.Domain.Entites.Users;
+namespace YallaHaggz.Domain.Entities.Users;
 
 public class User : IdentityUser<int>, IAuditableEntity, ISoftDeleteEntity
 {
@@ -12,13 +12,9 @@ public class User : IdentityUser<int>, IAuditableEntity, ISoftDeleteEntity
     public bool IsDeleted { get; private set; }
     public DateTime? DeletedOnUtc { get; private set; }
 
-    public User(string userName, string? email)
-    {
-        UserName = userName;
-        Email = email;
-        CreatedOnUtc = DateTime.UtcNow;
-        ModifiedOnUtc = null;
-    }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public string NationalityId { get; private set; }
 
     public override string? Email
     {
@@ -60,5 +56,19 @@ public class User : IdentityUser<int>, IAuditableEntity, ISoftDeleteEntity
     {
         IsDeleted = false;
         DeletedOnUtc = null;
+    }
+
+    public static User Create(string firstName, string lastName, string userName, string email, string phoneNumber, string NationalityId)
+    {
+        return new User
+        {
+            FirstName = firstName,
+            LastName = lastName,
+            UserName = userName,
+            Email = email,
+            NationalityId = NationalityId,
+            PhoneNumber = phoneNumber,
+            CreatedOnUtc = DateTime.UtcNow
+        };
     }
 }

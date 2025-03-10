@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using YallaHaggz.Domain.Abstractions;
-using YallaHaggz.Domain.Entites.Roles;
+using YallaHaggz.Domain.Entities.Roles;
 
 namespace YallaHaggz.Domain.Data.Seeders;
 

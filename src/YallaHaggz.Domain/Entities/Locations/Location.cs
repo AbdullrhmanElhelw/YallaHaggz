@@ -1,6 +1,6 @@
 ﻿using YallaHaggz.Domain.Abstractions;
 
-namespace YallaHaggz.Domain.Entites.Locations;
+namespace YallaHaggz.Domain.Entities.Locations;
 
 public sealed class Location : Entity
 {

@@ -1,6 +1,6 @@
 ﻿using YallaHaggz.Domain.Abstractions;
 
-namespace YallaHaggz.Domain.Entites.Sports;
+namespace YallaHaggz.Domain.Entities.Sports;
 
 public sealed class Sport : Entity
 {

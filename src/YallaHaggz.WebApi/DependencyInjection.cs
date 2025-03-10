@@ -1,15 +1,15 @@
 ﻿namespace YallaHaggz.WebApi;
 
+using Domain;
+using Domain.Abstractions;
+using Domain.Data;
+using Domain.Entities.Roles;
+using Domain.Entities.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
-using YallaHaggz.Domain;
-using YallaHaggz.Domain.Abstractions;
-using YallaHaggz.Domain.Data;
-using YallaHaggz.Domain.Entites.Roles;
-using YallaHaggz.Domain.Entites.Users;
-using YallaHaggz.Services;
+using Services;
 
 public static class DependencyInjection
 {
@@ -17,7 +17,7 @@ public static class DependencyInjection
     {
         services.AddDomain(configuration);
         services.AddIdentity();
-        services.AddServices();
+        services.AddServices(configuration);
         return services;
     }
 
@@ -51,7 +51,7 @@ public static class DependencyInjection
             c.Password.RequireLowercase = true;
             c.Password.RequireUppercase = true;
             c.Password.RequireNonAlphanumeric = true;
-            c.Password.RequiredLength = 8;
+            c.Password.RequiredLength = 6;
             c.User.RequireUniqueEmail = false;
         })
             .AddEntityFrameworkStores<YallaHaggzDbContext>()

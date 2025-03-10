@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using YallaHaggz.Domain.Abstractions;
-using YallaHaggz.Domain.Entites.Sports;
+using YallaHaggz.Domain.Entities.Sports;
 
 namespace YallaHaggz.Domain.Data.Seeders;
 
