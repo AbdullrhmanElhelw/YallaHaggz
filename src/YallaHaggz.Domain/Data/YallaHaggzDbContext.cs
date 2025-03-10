@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using YallaHaggz.Domain.Entites.Locations;
-using YallaHaggz.Domain.Entites.Roles;
-using YallaHaggz.Domain.Entites.Sports;
-using YallaHaggz.Domain.Entites.Users;
+using YallaHaggz.Domain.Entities.Locations;
+using YallaHaggz.Domain.Entities.Roles;
+using YallaHaggz.Domain.Entities.Sports;
+using YallaHaggz.Domain.Entities.Users;
 
 namespace YallaHaggz.Domain.Data;
 

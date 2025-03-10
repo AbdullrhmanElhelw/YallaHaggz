@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 
 namespace YallaHaggz.WebApi.Middlewares;
@@ -28,8 +28,17 @@ internal class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : 
             Extensions =
             {
                 ["traceId"] = Activity.Current?.Id ?? httpContext.TraceIdentifier,
-                ["requestId"] = httpContext.TraceIdentifier
-            }
+                ["requestId"] = httpContext.TraceIdentifier,
+                ["Errors"] = exception switch
+                {
+                    ValidationException validationException => validationException.Errors
+                        .GroupBy(e => e.PropertyName)
+                        .ToDictionary(g => g.Key, g => g
+                        .Select(e => e.ErrorMessage)),
+
+                    _ => new[] { exception.Message }
+                }
+            },
         };
 
         await httpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken);

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using YallaHaggz.Domain.Entites.Sports;
+using YallaHaggz.Domain.Entities.Sports;
 
 namespace YallaHaggz.Domain.Data.Configurations;
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using YallaHaggz.Domain.Abstractions;
-using YallaHaggz.Domain.Entites.Locations;
+using YallaHaggz.Domain.Entities.Locations;
 
 namespace YallaHaggz.Domain.Data.Seeders;
 
